@@ -1,4 +1,4 @@
-package validater
+package validators
 
 import "regexp"
 
