@@ -84,6 +84,9 @@ func CreateUser(req events.APIGatewayProxyRequest, tableName string, dynaClient 
 	}
 
 	currentUser, err := FeatchUser(u.Email, tableName, dynaClient)
+	if err != nil {
+		return nil, errors.New(ErrorFailedToFetchRecord)
+	}
 	if currentUser != nil && len(currentUser.Email) != 0 {
 		return nil, errors.New(ErrorUserAlreadyExists)
 	}
