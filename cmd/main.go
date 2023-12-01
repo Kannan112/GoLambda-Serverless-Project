@@ -9,7 +9,7 @@ import (
 	"github.com/aws/aws-sdk-go/aws/session"
 	"github.com/aws/aws-sdk-go/service/dynamodb"
 	"github.com/aws/aws-sdk-go/service/dynamodb/dynamodbiface"
-	"github.com/serverless-project/com/pkg/handlers"
+	"github.com/serverless-project/pkg/handlers"
 )
 
 var (
@@ -41,6 +41,6 @@ func handler(req events.APIGatewayProxyRequest) (*events.APIGatewayProxyResponse
 	case "DELETE":
 		return handlers.DeleteUser(req, tableName, dynaClient)
 	default:
-		return handlers.UnhandledMethod()()
+		return handlers.UnhandledMethod()
 	}
 }
